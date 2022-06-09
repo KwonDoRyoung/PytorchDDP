@@ -34,14 +34,14 @@ if __name__ == '__main__':
     train_dataset = torchvision.datasets.MNIST(root="/workspace/doyoung/lecture_ddp/dataset/",
                                                train=True, download=True, transform=train_transforms)
 
-    rand_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     model = MyModel(input_size, output_size).to(device)
 
     optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
     loss_fn = torch.nn.CrossEntropyLoss()
     scaler = GradScaler()
 
-    for inputs, targets in rand_loader:
+    for inputs, targets in train_loader:
         print("=" * 5 + " One Step " + "=" * 5)
         optimizer.zero_grad()
         with autocast():
