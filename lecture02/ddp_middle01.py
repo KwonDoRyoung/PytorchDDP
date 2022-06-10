@@ -56,7 +56,10 @@ def example_basic(rank, world_size):
 
         outputs = ddp_model(inputs)
         loss = loss_fn(outputs, targets)
-        print(f"==== Step {step:2d} ====")
+        if dist.get_rank() == 0:
+            print(f"==== Step {step:2d} ====")
+
+        dist.barrier()
         print(f"\tCurrent rank [{rank}] loss(value, size) = ({loss.item()}, {loss.size()})")
         loss.backward()
 
