@@ -68,7 +68,7 @@ def example_basic(rank, world_size):
             print(f"==== Step {step:2d} ====")
         dist.barrier()
         if dist.get_rank() == 0:
-            dist.gather(t, tensor_list)
+            dist.gather(t, tensor_list, 0)
         else:
             dist.gather(t)
         print(f"\tloss list in total rank [{rank}]: {tensor_list}")
