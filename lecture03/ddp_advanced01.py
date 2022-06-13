@@ -80,8 +80,6 @@ def trainer(rank, world_size):
             dist.all_reduce(t)
             if step % 100 == 0:
                 print(f"\tAverage loss [{step}]: {t / world_size}")
-                break
-        break
 
     dist.destroy_process_group()
 
