@@ -30,10 +30,12 @@
 1. 단일 GPU 학습 (데이터와 모델이 단일 GPU에 할당 가능한 경우, 속도는 관심없음)
 2. 단일 서버(기계) & 다중 GPU 학습 (DataParallel)
     - 속도 증가 및 최소한의 코드 수정
+      
     [Pytorch Distributed 정리 - I](https://www.notion.so/Pytorch-Distributed-I-15147c02da5749d285ba0c438d1a055f?pvs=21)
     
 3. 단일 서버(기계) & 다중 GPU 학습 (DistributedDataParallel)
     - 속도 증가 및 코드 수정 불가피
+    - 
     [Pytorch Distributed 정리 - II](https://www.notion.so/Pytorch-Distributed-II-328d5557c91149dcab3f078d60d7c0cd?pvs=21)
 
     [Pytorch Distributed 정리 - III](https://www.notion.so/Pytorch-Distributed-III-e259eade397f4392be7c63188f9bb7e9?pvs=21)
